@@ -93,7 +93,7 @@ To use the development checkout with mise, run the following commands:
 mise plugin uninstall maven
 
 cd <PROJECT DIRECTORY>
-mise link maven $PWD
+mise plugin link maven $PWD
 ```
 
 ### Adding dependencies

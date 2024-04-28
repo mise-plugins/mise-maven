@@ -14,46 +14,44 @@
 # limitations under the License.
 
 legacy_file=$1
-legacy_filename="$(basename $1)"
+legacy_filename="$(basename "$legacy_file")"
 
 trim() {
     s="${1}"
     size_before=${#s}
     size_after=0
-    while [ ${size_before} -ne ${size_after} ]
-    do
+    while [ "${size_before}" -ne "${size_after}" ]; do
         size_before=${#s}
         s="${s#[[:space:]]}"
         s="${s%[[:space:]]}"
         size_after=${#s}
     done
-    echo "${s}"
+    printf "%s\n" "${s}"
 }
 
 read_properties() {
     file="$1"
     local IFS="="
-    while read -r key value || [[ -n "$value" ]]; do
-        key="$(trim $key)"
+    while read -r key value || [[ -n $value ]]; do
+        key="$(trim "$key")"
         case "$key" in
         "mvn_version")
             if [ "$legacy_filename" = "mvnvm.properties" ]; then
-                mvn_version="$(trim $value)"
+                mvn_version="$(trim "$value")"
                 mvn_version_configured=1
             fi
-        ;;
+            ;;
         "maven")
             if [ "$legacy_filename" = ".sdkmanrc" ]; then
-                mvn_version="$(trim $value)"
+                mvn_version="$(trim "$value")"
                 mvn_version_configured=1
             fi
-        ;;
+            ;;
         esac
-    done < "$file"
+    done <"$file"
 }
 
-read_properties $1
+read_properties "$legacy_file"
 if [ "$mvn_version_configured" = "1" ]; then
-    printf "$mvn_version\n"
+    printf "%s\n" "$mvn_version"
 fi
-

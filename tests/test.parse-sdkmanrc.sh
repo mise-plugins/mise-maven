@@ -16,27 +16,25 @@
 testIdentifiesMavenVersionFromStandardSdkmanRC() {
     local parsedVersion
     parsedVersion="$(../bin/parse-legacy-file test-files/3.7.1-sdkmanrc-simple/.sdkmanrc)"
-    assertEquals $parsedVersion "3.7.1"
+    assertEquals "$parsedVersion" "3.7.1"
 }
 
 testReturnValue() {
-    local returnVal
-    returnVal="$(../bin/parse-legacy-file test-files/3.7.1-sdkmanrc-simple/.sdkmanrc; echo ${?})"
-    assertEquals $returnVal 0
+    ../bin/parse-legacy-file test-files/3.7.1-sdkmanrc-simple/.sdkmanrc > /dev/null 2>&1
+    assertEquals 0 "$?"
 }
 
 testIgnoresMvnvmPropertiesProperty() {
     local parsedVersion
     parsedVersion="$(../bin/parse-legacy-file test-files/invalid-sdkmanrc/.sdkmanrc)"
     if [ -n "$parsedVersion" ]; then
-        failFound "parsing .sdkmanrc file with mvnvm property should give no content" $parsedVersion
+        failFound "parsing .sdkmanrc file with mvnvm property should give no content" "$parsedVersion"
     fi
 }
 
 testInvalidFileStillReturnsZero() {
-    local returnVal
-    returnVal="$(../bin/parse-legacy-file test-files/invalid-sdkmanrc/.sdkmanrc; echo ${?})"
-    assertEquals "invalid .sdkmanrc file should still return 0" $returnVal 0
+    ../bin/parse-legacy-file test-files/invalid-sdkmanrc/.sdkmanrc > /dev/null 2>&1
+    assertEquals "invalid .sdkmanrc file should still return 0" 0 "$?"
 }
 
 . ./shunit2/shunit2

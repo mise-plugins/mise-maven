@@ -21,8 +21,7 @@ testLegacyFilenameListContainsMvnvmProperties() {
             found_mvnvm_properties=1
         fi
     done
-    echo $filename_array
-    assertEquals "could not find mvnvm.properties in list-legacy-filenames" $found_mvnvm_properties "1"
+    assertEquals "could not find mvnvm.properties in list-legacy-filenames" "$found_mvnvm_properties" "1"
 }
 
 testLegacyFilenameListContainsSdkmanRC() {
@@ -33,8 +32,7 @@ testLegacyFilenameListContainsSdkmanRC() {
             found_sdkmanrc=1
         fi
     done
-    echo $filename_array
-    assertEquals "could not find .sdkmanrc in list-legacy-filenames" $found_sdkmanrc "1"
+    assertEquals "could not find .sdkmanrc in list-legacy-filenames" "$found_sdkmanrc" "1"
 }
 
 . ./shunit2/shunit2

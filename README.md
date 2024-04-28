@@ -49,6 +49,60 @@ regarding the version of maven not being installed, simply run:
 mise install maven
 ```
 
+## Contributing
+
+Before contributing ensure all dependencies (and your contribution) is licensed
+with an [open-source license compatible with the Apache 2.0 license](https://www.apache.org/legal/resolved.html#category-a).
+Add information about your intellectual property rights to the [NOTICE](NOTICE)
+file, as well as any dependencies or third-party code used to create your
+contribution. The [LICENSE](LICENSE) file should not be modified.
+
+### Getting started
+
+**mise-maven** is currently integrated against the following operating systems:
+
+- Linux
+- macOS
+
+To contribute to the plugin's development, first you will need to make a
+GitHub fork of the **mise-maven** repository, and then clone into it using
+the following command (replace `<your-github-username>` with the name of the
+account used to create the fork:
+
+```bash
+git clone --recurse-submodules git@github.com:<your-github-username>/mise-maven.git
+```
+
+To test the plugin, you will need to run the following command from within the
+project's root directory:
+
+```bash
+./tests/test-all.sh
+```
+
+Assuming you have correctly configured your environment, this will result in
+the unit test suite running and displaying a successful result.
+
+#### Using your development checkout with mise
+
+To use the development checkout with mise, run the following commands:
+
+```bash
+# If you are already using mise-maven or another maven plugin for mise you
+# will need to run:
+mise plugin uninstall maven
+
+cd <PROJECT DIRECTORY>
+mise link maven $PWD
+```
+
+### Adding dependencies
+
+Any runtime dependencies required by mise-maven to operate correctly when
+used by an end-user should be directly bundled into the source code.
+Dependencies used for development or testing purposes only may be added
+as git submodules or configured through mise.
+
 ## License
 
 All contributions are licensed under the Apache License, Version 2.0

@@ -16,24 +16,24 @@
 testIdentifiesMavenVersionFromStandardMvnvmProperties() {
     local parsedVersion
     parsedVersion="$(../bin/parse-legacy-file test-files/3.8.8-mvnvm-simple/mvnvm.properties)"
-    assertEquals "$parsedVersion" "3.8.8"
+    assertEquals "3.8.8" "$parsedVersion" 
 }
 
 testIdentifiesMavenVersionFromWhitespaceyMvnvmProperties() {
     local parsedVersion
     parsedVersion="$(../bin/parse-legacy-file test-files/3.6.2-mvnvm-whitespace/mvnvm.properties)"
-    assertEquals "$parsedVersion" "3.6.2"
+    assertEquals "3.6.2" "$parsedVersion" 
 }
 
 testIdentifiesMavenVersionFromCommentedMvnvmProperties() {
     local parsedVersion
     parsedVersion="$(../bin/parse-legacy-file test-files/3.9.5-mvnvm-comments/mvnvm.properties)"
-    assertEquals "$parsedVersion" "3.9.5"
+    assertEquals "3.9.5" "$parsedVersion" 
 }
 
 testReturnValue() {
     ../bin/parse-legacy-file test-files/3.8.8-mvnvm-simple/mvnvm.properties >/dev/null 2>&1
-    assertEquals 0 "$?"
+    assertTrue "$?"
 }
 
 testIgnoresSdkmanrcProperty() {
@@ -46,7 +46,7 @@ testIgnoresSdkmanrcProperty() {
 
 testInvalidFileStillReturnsZero() {
     ../bin/parse-legacy-file test-files/invalid-mvnvm/mvnvm.properties >/dev/null 2>&1
-    assertEquals "invalid mvnvm.properties file should still return 0" 0 "$?"
+    assertTrue "invalid mvnvm.properties file should still return 0" "$?"
 }
 
 . ./shunit2/shunit2

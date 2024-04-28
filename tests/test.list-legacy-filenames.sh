@@ -36,4 +36,3 @@ testLegacyFilenameListContainsSdkmanRC() {
 }
 
 . ./shunit2/shunit2
-

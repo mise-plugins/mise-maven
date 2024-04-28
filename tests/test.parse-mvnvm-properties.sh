@@ -32,7 +32,7 @@ testIdentifiesMavenVersionFromCommentedMvnvmProperties() {
 }
 
 testReturnValue() {
-    ../bin/parse-legacy-file test-files/3.8.8-mvnvm-simple/mvnvm.properties > /dev/null 2>&1
+    ../bin/parse-legacy-file test-files/3.8.8-mvnvm-simple/mvnvm.properties >/dev/null 2>&1
     assertEquals 0 "$?"
 }
 
@@ -45,7 +45,7 @@ testIgnoresSdkmanrcProperty() {
 }
 
 testInvalidFileStillReturnsZero() {
-    ../bin/parse-legacy-file test-files/invalid-mvnvm/mvnvm.properties > /dev/null 2>&1
+    ../bin/parse-legacy-file test-files/invalid-mvnvm/mvnvm.properties >/dev/null 2>&1
     assertEquals "invalid mvnvm.properties file should still return 0" 0 "$?"
 }
 

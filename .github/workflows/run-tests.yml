@@ -14,5 +14,5 @@ jobs:
       with:
         submodules: 'true'
     - name: Run test script
-      run: tests/test-all.sh
+      run: tests/run-all.sh
 

@@ -20,7 +20,7 @@ testIdentifiesMavenVersionFromStandardSdkmanRC() {
 }
 
 testReturnValue() {
-    ../bin/parse-legacy-file test-files/3.7.1-sdkmanrc-simple/.sdkmanrc > /dev/null 2>&1
+    ../bin/parse-legacy-file test-files/3.7.1-sdkmanrc-simple/.sdkmanrc >/dev/null 2>&1
     assertEquals 0 "$?"
 }
 
@@ -33,7 +33,7 @@ testIgnoresMvnvmPropertiesProperty() {
 }
 
 testInvalidFileStillReturnsZero() {
-    ../bin/parse-legacy-file test-files/invalid-sdkmanrc/.sdkmanrc > /dev/null 2>&1
+    ../bin/parse-legacy-file test-files/invalid-sdkmanrc/.sdkmanrc >/dev/null 2>&1
     assertEquals "invalid .sdkmanrc file should still return 0" 0 "$?"
 }
 

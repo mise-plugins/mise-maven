@@ -77,7 +77,7 @@ To test the plugin, you will need to run the following command from within the
 project's root directory:
 
 ```bash
-./tests/test-all.sh
+./tests/run-all.sh
 ```
 
 Assuming you have correctly configured your environment, this will result in

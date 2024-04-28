@@ -1,0 +1,16 @@
+name: Run Tests
+
+on: [push]
+
+jobs:
+  test:
+    name: Test on ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Run test script
+      run: test/test-all.sh
+

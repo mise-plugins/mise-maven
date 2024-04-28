@@ -1,0 +1,59 @@
+#!/usr/bin/env bash
+# Copyright 2024 (c) Andrew Dunn
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+legacy_file=$1
+legacy_filename="$(basename $1)"
+
+trim() {
+    s="${1}"
+    size_before=${#s}
+    size_after=0
+    while [ ${size_before} -ne ${size_after} ]
+    do
+        size_before=${#s}
+        s="${s#[[:space:]]}"
+        s="${s%[[:space:]]}"
+        size_after=${#s}
+    done
+    echo "${s}"
+}
+
+read_properties() {
+    file="$1"
+    local IFS="="
+    while read -r key value || [[ -n "$value" ]]; do
+        key="$(trim $key)"
+        case "$key" in
+        "mvn_version")
+            if [ "$legacy_filename" = "mvnvm.properties" ]; then
+                mvn_version="$(trim $value)"
+                mvn_version_configured=1
+            fi
+        ;;
+        "maven")
+            if [ "$legacy_filename" = ".sdkmanrc" ]; then
+                mvn_version="$(trim $value)"
+                mvn_version_configured=1
+            fi
+        ;;
+        esac
+    done < "$file"
+}
+
+read_properties $1
+if [ "$mvn_version_configured" = "1" ]; then
+    printf "$mvn_version\n"
+fi
+

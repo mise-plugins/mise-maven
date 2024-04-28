@@ -1,0 +1,53 @@
+mise-maven
+
+This product includes software written by the following contributors, licensed
+under the terms of the Apache License, version 2.0
+
+Andrew Dunn
+Copyright © 2024 Andrew Dunn
+
+---
+
+mise-maven is built on top of the asdf-maven asdf plugin, which is licensed
+under the MIT License, a copy of that license is available below:
+
+MIT License
+
+Copyright (c) 2017 William Tyler Cinnamon
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+mise-maven adapts code from mvnvm, in order to enable accurate handling of
+mvnvm.properties files. This code was licensed under the terms of the Apache
+License, version 2.0
+
+Copyright (c) [2013] - [2023] Atlassian and others.
+
+---
+
+mise-maven uses shUnit2, a framework for unit testing shell scripts. It is
+written by Kate Ward, and is licensed under the terms of the Apache License,
+version 2.0
+
+Copyright 2008-2021 Kate Ward. All Rights Reserved.
+
+---
+

@@ -15,4 +15,4 @@ get_maven_versions() {
     done
 }
 
-get_maven_versions | sort -u | tr "\n" " "
+get_maven_versions | sort --version-sort --unique | tr "\n" " "

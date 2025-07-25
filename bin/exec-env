@@ -2,7 +2,7 @@
 
 # Set environment variables
 if [ "$(echo $ASDF_INSTALL_VERSION | cut -d '.' -f 1)" -eq "2" ]; then
-	export M2_HOME="$ASDF_INSTALL_PATH"
+    export M2_HOME="$ASDF_INSTALL_PATH"
 else
-	export MAVEN_HOME="$ASDF_INSTALL_PATH"
+    export MAVEN_HOME="$ASDF_INSTALL_PATH"
 fi
